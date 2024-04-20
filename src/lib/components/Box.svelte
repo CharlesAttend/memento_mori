@@ -1,6 +1,7 @@
 <script>
   export let id;
-  export let colored;
+  export let isPast;
+  export let isEvent
 </script>
 
 <div
@@ -9,6 +10,7 @@
 >
   <div
     class="w-full aspect-square"
-    class:bg-gray-400={colored}
+    class:bg-gray-400={isPast}
+    class:bg-red-500={isEvent}
   ></div>
 </div>
