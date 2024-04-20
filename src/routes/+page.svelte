@@ -14,7 +14,7 @@
       }
     }
     // Update the grid (to trigger a re-render)
-    grid = tmp;
+    return tmp;
   };
 
   const updateGrid = () => {
@@ -35,13 +35,15 @@
 
   $: innerWidth = 0;
   $: innerHeight = 0;
-  let currentAge = 22;
 
+  let currentAge = 22;
   let weeks = 52;
   let maxAge = 100;
-  let eventFreq = 4;
-  let grid = [];
-  generateGrid();
+  let eventFreq = 52;
+  $: remainingEvents = ((maxAge - currentAge) * weeks) / eventFreq;
+  $: pastEvents = (currentAge * weeks) / eventFreq;
+  $: percentagePastEvents = (100 * pastEvents) / (pastEvents + remainingEvents);
+  let grid = generateGrid();
 </script>
 
 <!-- <svelte:window bind:innerWidth bind:innerHeight /> -->
@@ -66,6 +68,9 @@
     on:change={updateGrid}
     class="border border-gray-300 rounded-md p-2"
   />
+  <div>Remaining Events: {remainingEvents.toPrecision(4)}</div>
+  <div>Past Events: {pastEvents.toPrecision(4)}</div>
+  <div>Percentage Past Events: {percentagePastEvents.toPrecision(4)}%</div>
 </div>
 <div class="h-min w-full p-5">
   <div
