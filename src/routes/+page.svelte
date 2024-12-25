@@ -35,7 +35,7 @@
 
   $: innerWidth = 0;
   $: innerHeight = 0;
-
+  let rowPerYear = 2;
   let currentAge = 22;
   let weeks = 52;
   let maxAge = 100;
@@ -76,7 +76,7 @@
   <div
     class="grid gap-[4px] h-full"
     style=" grid-template-rows: repeat({maxAge}, 1fr); 
-            grid-template-columns: repeat({weeks / 2}, 1fr);"
+            grid-template-columns: repeat({weeks / rowPerYear}, 1fr);"
   >
     {#each grid as box (box.id)}
       <Box {...box} />
