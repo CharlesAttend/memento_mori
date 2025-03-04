@@ -1,5 +1,7 @@
 # Memento Mori
 
+> **WIP**
+
 ## Overview
 
 Memento Mori is a life calendar project inspired by [this concept](https://memento-mori-calendar.netlify.app/calendar). The goal is to provide a visual representation of one's life in weeks, helping users reflect on time and priorities.
